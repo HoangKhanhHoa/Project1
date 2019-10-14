@@ -14,7 +14,7 @@ body {
   margin-right: auto;
   padding-left: 30px;
   padding-right: 30px;
-  width: 1230px;
+  max-width: 1230px;
 }
 
 .row {
@@ -32,7 +32,7 @@ body {
     padding-right: 15px;
   }
 
-  &::before {
+  &::after {
     @include circle(54px, 54px);
     background-color: $theme-green;
     content: '';
@@ -105,7 +105,6 @@ body {
 
     &__item {
       font-size: 12px;
-      font-weight: 700;
       padding: 0 15px;
       text-transform: uppercase;
     }
@@ -246,14 +245,6 @@ body {
     margin: 0 5px;
     text-align: center;
     width: 30%;
-
-    &:first-child{
-      border-right: 1px solid $gray-2;
-    }
-
-    &:last-child{
-      border-left: 1px solid $gray-2;
-    }
   }
 
   &__icon{
@@ -325,12 +316,16 @@ body {
     &--rose {
       background-color: $color-rose;
     }
+    
+    &--last{
+      display: block;
+    }
   }
 
   .control {
     &__button {
       @include center-position;
-      @include circle(105px, 105px);
+      @include circle(104px, 104px);
       background-color: $bg-play-black;
       border: none;
       cursor: pointer;
@@ -338,7 +333,7 @@ body {
 
       &::after {
         border-bottom: 20px solid transparent;
-        border-left: 30px solid $pure-black;
+        border-left: 24px solid $pure-black;
         border-top: 20px solid transparent;
         content: '';
         left: 55%;
@@ -352,7 +347,7 @@ body {
   .title-link {
     @include font-format($font-robotoslab-light, 30px, null);
     border-bottom: 1px solid;
-    padding: 5px;
+    padding: 8px 0;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
@@ -367,34 +362,59 @@ body {
       border-color: $gray-1;
     }
 
+    &--small{
+      font-size: 22px;
+    }
+
     &::after {
       content: '/////////';
-      font-size: 15px;
+      font-size: 16px;
       left: 50%;
       letter-spacing: 1px;
       padding: 0 5px;
       position: absolute;
       top: 80%;
-      transform: translateX(-50%) skewX(-20deg) scaleY(0.6);
+      transform: translateX(-50%) skewX(-15deg) scaleY(0.6);
+    }
+
+    &--bg-sunny{
+      &::after{
+      background-color: $color-sunny;
+      }
+    }
+
+    &--bg-grapes{
+      &::after{
+      background-color: $color-grapes;
+      }
+    }
+
+    &--bg-sea{
+      &::after{
+      background-color: $color-sea;
+      }
     }
   }
 
   .title-special {
     color: $pure-black;
-    display: inline-block;
+    display: block;
     text-align: center;
     text-decoration: none;
 
+    &__img{
+      margin-top: 16px;
+    }
+
     &__intro {
       font-family: $font-lobster;
-      font-size: 40px;
-      margin-bottom: 10px;
-      margin-top: 15px;
+      font-size: 38px;
+      margin-bottom: 0;
+      margin-top: 5px;
     }
 
     &__daisy {
       margin: 0;
-      word-spacing: 10px;
       text-transform: uppercase;
 
       & :last-child {
@@ -536,7 +556,7 @@ body {
   background-repeat: repeat;
   border-bottom: 1px solid $gray-1;
   box-sizing: border-box;
-  min-height: 805px;
+  min-height: 806px;
   padding-top: 65px;
 
   &__header {
@@ -548,7 +568,10 @@ body {
   }
 
   &__control {
-    @include center-position;
+    position: absolute;
+    top: 192px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
   }
 
@@ -582,6 +605,10 @@ body {
     position: relative;
     width: 270px;
 
+    &:hover .product__interact{
+      display: block;
+    }
+
     &:focus{
       outline: none;
     }
@@ -593,8 +620,8 @@ body {
     &__name {
       @include font-format($font-opensans-bold, 13px, $gray-4);
       display: block;
-      margin-bottom: 0;
-      margin-top: 20px;
+      margin-bottom: 2px;
+      margin-top: 18px;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
@@ -650,8 +677,9 @@ body {
     }
 
     &__interact {
-      padding: 15px 0 25px;
+      padding: 12px 0 25px;
       text-align: center;
+      display: none;
     }
 
     &__buy {
@@ -677,7 +705,7 @@ body {
       color: $pure-white;
       cursor: pointer;
       margin: 0 5px;
-      padding: 14px 15px;
+      padding: 14px;
     }
 
     &__change {
@@ -685,7 +713,7 @@ body {
       border: 2px solid $gray-1;
       border-radius: 15px;
       cursor: pointer;
-      padding: 14px 13px;
+      padding: 12px;
     }
   }
 }
@@ -699,13 +727,6 @@ body {
     font-weight: 400;
     margin: 0;
     padding: 0 10px;
-    &:first-child{
-      border-right: 1px solid $gray-1;
-    }
-
-    &:last-child{
-      border-left: 1px solid $gray-1;
-    }
   }
 
   &__link{
@@ -722,9 +743,13 @@ body {
       content: url('../img/tab_active.PNG');
       left: 50%;
       position: absolute;
-      top: 100%;
+      top: 75%;
       transform: translateX(-50%);
     }
+  }
+  .divider{
+    border-left: 1px solid $gray-1;
+    padding: 5px 0;
   }
 }
 
@@ -757,8 +782,8 @@ body {
 /* CONTACT */
 
 .contact {
-  padding-bottom: 90px;
-  padding-top: 42px;
+  padding-bottom: 80px;
+  padding-top: 40px;
 
   &__item {
     float: left;
@@ -772,13 +797,15 @@ body {
   &__title {
     font-family: $font-opensans-bold;
     font-size: 16px;
+    margin-top: 14px;
+    margin-bottom: 16px;
     text-align: center;
     text-transform: uppercase;
 
     &::after {
       content: url('../img/contact_bottom.PNG');
       display: block;
-      padding: 5px 0;
+      padding: 6px 0;
       width: 100%;
     }
   }
@@ -805,13 +832,12 @@ body {
     text-align: center;
 
     &__item {
-      padding: 5px 40px;
+      padding: 6px 40px;
       transition: 0.6s;
     }
 
     &__link {
       @include font-format($font-opensans-bold, 10px, $black-1);
-      font-weight: 700;
       text-transform: uppercase;
       transition: 0.6s;
 
@@ -845,16 +871,16 @@ body {
   &__intro {
     font-family: $font-opensans-bold;
     font-size: 12px;
-    margin-top: 25px;
+    margin-top: 26px;
     text-transform: uppercase;
   }
 
   &__des {
     @include font-format($font-opensans-reg, 12px, $gray-9);
+    text-align: justify;
   }
 
   &__see-more {
-
     & :first-child {
       @include font-format($font-opensans-reg, 12px, $gray-9);
       text-decoration: none;
@@ -870,9 +896,14 @@ body {
     border-bottom: 1px solid $gray-1;
     font-family: $font-opensans-bold;
     font-size: 12px;
-    margin-top: 20px;
-    padding-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
     text-transform: uppercase;
+  }
+
+  &__img{
+    margin-top: 10px;
   }
 
   &__des {
@@ -885,7 +916,11 @@ body {
     border-bottom: 1px solid $gray-1;
     font-style: italic;
     margin: 0;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+  }
+
+  &__more{
+    padding: 5px 0;
   }
 
   &__read-more, &__comment{
@@ -934,6 +969,9 @@ body {
 }
 
 .tag-product {
+  &__wrapper-item{
+    padding: 8px 0;
+  }
   &__item {
     @include font-format($font-opensans-reg, 12px, $gray-8);
     border: 1px solid $gray-1;
@@ -958,13 +996,13 @@ body {
 
   &__end {
     border-top: 1px solid $black-2;
-    padding: 25px 0;
+    padding: 20px 0;
   }
 }
 
 .main-footer {
-  padding-bottom: 25px;
-  padding-top: 55px;
+  padding-bottom: 16px;
+  padding-top: 52px;
 
   &__item {
     width: 16.66%;
@@ -976,63 +1014,17 @@ body {
     text-transform: uppercase;
   }
 
-  .contact-us {
-    width: 33.33%;
-
-    &__content {
-      box-sizing: border-box;
-      padding-right: 50px;
-    }
-
-    &__address,
-    &__others {
-      @include font-format($font-roboto-reg, 14px, $gray-10);
-      margin: 10px 0;
-    }
-
-    &__address {
-      font-weight: 700;
-      line-height: 25px;
-      margin-bottom: 10px;
-      margin-top: 25px;
-
-      & :first-child {
-        color: $theme-green;
-        float: left;
-        margin-right: 10px;
-        margin-top: 6px;
-      }
-
-      & :last-child {
-        display: block;
-        overflow: hidden;
-      }
-
-      &::after {
-        clear: both;
-        content: '';
-        display: block;
-      }
-    }
-
-    &__item {
-      font-weight: 700;
-      margin-right: 10px;
-
-      & :first-child {
-        color: $theme-green;
-        margin-right: 5px;
-      }
-    }
-  }
-
   .footer-others {
     box-sizing: border-box;
     padding: 0 10px;
 
     &__content {
-      margin-top: 25px;
+      margin-top: 20px;
       padding: 0;
+    }
+
+    &__item{
+      margin-bottom: 5px;
     }
 
     &__link {
@@ -1043,15 +1035,85 @@ body {
       transition: 0.6s;
 
       &:hover {
+        &::before{
+          content: '';
+          display: inline-block;
+          width: 4px;
+          height: 4px;
+          margin: 3px 7px 3px 0;
+          background-color: $theme-green;
+        }
         color: $theme-green;
       }
     }
   }
 }
 
+.contact-us {
+  $this: &;
+  width: 33.33%;
+
+  &__content {
+    box-sizing: border-box;
+    padding-right: 50px;
+  }
+
+  &__address,
+  &__others {
+    @include font-format($font-roboto-reg, 14px, $gray-10);
+    margin: 8px 0;
+  }
+
+  &__address {
+    font-weight: 700;
+    line-height: 30px;
+    margin-top: 18px;
+
+    & :first-child {
+      color: $theme-green;
+      float: left;
+      margin-right: 10px;
+      margin-top: 6px;
+    }
+
+    & :last-child {
+      display: block;
+      overflow: hidden;
+    }
+
+    &::after {
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+  &__others:last-child {
+    #{$this}__item:last-child{
+      text-decoration: none;
+      color: $theme-green;
+      font-style: italic;
+      margin-left: 20px;
+    }
+  }
+
+  &__item {
+    font-weight: 700;
+    transition: 0.6s;
+    & :first-child {
+      color: $theme-green;
+      margin-right: 5px;
+    }
+  }
+
+  &__hyphen{
+    margin: 0 5px;
+  }
+}
+
 .copyright {
   margin-right: auto;
-
+  margin-top: 4px;
   &__text {
     @include font-format($font-roboto-reg, 12px, $gray-9);
     margin: 0;

@@ -35,7 +35,7 @@
             </li>
             <li class="nav__item">
               <a href="#" class="nav__link">Sản Phẩm
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-angle-down"></i>
               </a>
             </li>
             <li class="nav__item">
@@ -94,12 +94,14 @@
           </div>
           <div class="selling-services__des">Miễn phí vận chuyển</div>
         </div>
+        <div class="divider"></div>
         <div class="selling-services__item">
           <div class="selling-services__icon">
             <i class="fas fa-gift"></i>
           </div>
           <div class="selling-services__des">Nhận ngay quà tặng trị giá 350.000đ</div>
         </div>
+        <div class="divider"></div>
         <div class="selling-services__item">
           <div class="selling-services__icon">
             <i class="fas fa-star"></i>
@@ -117,7 +119,7 @@
                 <img src="img/perfume.JPG" alt="Sữa Tắm">
               </a>
               <div class="categories__title categories__title--sunny triangle-left triangle-left--sunny right">
-                <a class="title-link title-link--light" href="#">Sữa tắm</a>
+                <a class="title-link title-link--light title-link--bg-sunny" href="#">Sữa tắm</a>
               </div>
             </div>
             <div class="categories__item clearfix">
@@ -125,7 +127,7 @@
                 <img src="img/saleoff.JPG" alt="Giảm giá" class="right">
               </a>
               <div class="categories__title categories__title--grapes triangle-right triangle-right--grapes">
-                <a class="title-link title-link--dark" href="#">Nước hoa</a>
+                <a class="title-link title-link--dark title-link--bg-grapes" href="#">Nước hoa</a>
               </div>
             </div>
           </div>
@@ -153,16 +155,16 @@
                 <img class="right" src="img/diamond_gift.JPG" alt="Trang Sức">
               </a>
               <div class="categories__title categories__title--sea triangle-right triangle-right--sea">
-                <a class="title-link title-link--dark" href="#">Trang sức</a>
+                <a class="title-link title-link--dark title-link--bg-sea title-link--small" href="#">Trang sức</a>
               </div>
             </div>
             <div class="categories__item clearfix">
               <a href="#">
                 <img src="img/flower_woman.JPG" alt="Giảm giá">
               </a>
-              <div class="categories__title categories__title--rose triangle-left triangle-left--rose right">
+              <div class="categories__title categories__title--last categories__title--rose triangle-left triangle-left--rose right">
                 <a class="title-special" href="#">
-                  <img src="img/perfume.PNG" alt="Nước hoa">
+                  <img class="title-special__img" src="img/perfume.PNG" alt="Nước hoa">
                   <p class="title-special__intro">Quyến rũ hơn</p>
                   <p class="title-special__daisy">
                     <span>cùng</span>
@@ -238,15 +240,17 @@
     <!-- carousel-product-header -->
     <div class="carousel-product__header">
       <!-- carousel-product-tab for product type in caroussel -->
-      <div class="tab">
+      <div class="tab js-tab">
         <h4 class="tab__item">
-          <a class="tab__link" href="#">Sản phẩm mới</a>
+          <a class="tab__link" href="#" data-tab="new-product">Sản phẩm mới</a>
         </h4>
+        <span class="divider"></span>
         <h4 class="tab__item">
-          <a class="tab__link tab__active" href="#">Sản phẩm bán chạy</a>
+          <a class="tab__link tab__active" href="#" data-tab="best-selling-product">Sản phẩm bán chạy</a>
         </h4>
+        <span class="divider"></span>
         <h4 class="tab__item">
-          <a class="tab__link" href="#">Sản phẩm đặc biệt</a>
+          <a class="tab__link" href="#" data-tab="special-product">Sản phẩm đặc biệt</a>
         </h4>
       </div>
       <!-- end carousel-product-tab -->
@@ -277,8 +281,114 @@
     </div>
     <!-- end carousel-product-header -->
     <!-- carousel-product-main -->
-    <div class="container carousel-product__main">
-      <div class="carousel-product__product clearfix js-carousel-product">
+    <!-- carousel-new-product -->
+    <div class="container carousel-product__main" id="new-product">
+      <div class="carousel-product__products clearfix js-carousel-product">
+        <!-- carousel-product-item -->
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/oil_yellow.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Home</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price">
+              <span>355.000</span>
+              <span>450.000</span>
+            </p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/nail_pink.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Debora</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/wash_bottle.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Sarvon</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/cream_other.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Tiffany</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/cream.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Tiffany</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/lipstick_blue.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Ohui</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+        <!-- end carousel-product-item -->
+      </div>
+      <!-- end carousel-product-main -->
+      <!-- carousel-product-control -->
+      <div class="carousel-product__control">
+        <button type="button" class="control-prev slick-prev">
+          <img src="img/previous.PNG" alt="Previous">
+        </button>
+        <button type="button" class="control-next slick-next">
+          <img src="img/next.PNG" alt="Next">
+        </button>
+      </div>
+      <!-- end carousel-product-control -->
+    </div>
+    <!-- end carousel-new-product -->
+    <!-- carousel-best-selling-product -->
+    <div class="container carousel-product__main" id="best-selling-product">
+      <div class="carousel-product__products clearfix js-carousel-product">
         <!-- carousel-product-item -->
         <div class="carousel-product__item product">
           <img class="product__img" src="img/lipstick_blue.JPG" alt="Son Môi">
@@ -380,6 +490,112 @@
       </div>
       <!-- end carousel-product-control -->
     </div>
+    <!-- end carousel-best-selling-product -->
+    <!-- carousel-special-product -->
+    <div class="container carousel-product__main" id="special-product">
+      <div class="carousel-product__products clearfix js-carousel-product">
+        <!-- carousel-product-item -->
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/cream.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Tiffany</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/lipstick_blue.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Ohui</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/oil_yellow.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Home</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price">
+              <span>355.000</span>
+              <span>450.000</span>
+            </p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/nail_pink.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Debora</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/wash_bottle.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Sarvon</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+
+        <div class="carousel-product__item product">
+          <img class="product__img" src="img/cream_other.JPG" alt="Son Môi">
+          <div class="product__detail">
+            <a class="product__name" href="#">Tiffany</a>
+            <a class="product__type" href="#">Mỹ phẩm châu Âu</a>
+            <p class="product__price"><span>355.000</span></p>
+          </div>
+          <div class="product__interact">
+            <a class="product__buy" href="#">Mua hàng</a>
+            <button class="product__love" type="button"><i class="fas fa-heart"></i></button>
+            <button class="product__change" type="button"><i class="fas fa-sync-alt"></i></button>
+          </div>
+        </div>
+        <!-- end carousel-product-item -->
+      </div>
+      <!-- end carousel-product-main -->
+      <!-- carousel-product-control -->
+      <div class="carousel-product__control">
+        <button type="button" class="control-prev slick-prev">
+          <img src="img/previous.PNG" alt="Previous">
+        </button>
+        <button type="button" class="control-next slick-next">
+          <img src="img/next.PNG" alt="Next">
+        </button>
+      </div>
+      <!-- end carousel-product-control -->
+    </div>
+    <!-- end carousel-special-product -->
   </section>
   <!-- end carousel-product -->
   <!-- contact -->
@@ -458,7 +674,7 @@
         <h3 class="contact__title">
           Blog
         </h3>
-        <img src="img/blog_img.PNG" alt="Blog Girl">
+        <img class="blog__img" src="img/blog_img.PNG" alt="Blog Avatar">
         <div class="blog__detail">
           <p class="blog__intro">
             Review son kem Bourjois Velvet
@@ -530,11 +746,12 @@
             </p>
             <p class="contact-us__others">
               <span class="contact-us__item"><i class="fas fa-phone-alt"></i>(04) 6674 2332</span>
+              <span class="contact-us__hyphen">-</span>
               <span class="contact-us__item"><i class="fas fa-phone-alt"></i>(04) 3786 8904</span>
             </p>
             <p class="contact-us__others">
               <span class="contact-us__item"><i class="fas fa-phone-alt"></i>(08) 6680 9686</span>
-              <span class="contact-us__item"><i class="fas fa-envelope"></i>Support@bizweb.vn</span>
+              <a class="contact-us__item" href="mailto:Support@bizweb.vn"><i class="fas fa-envelope"></i>Support@bizweb.vn</a>
             </p>
           </div>
         </div>
@@ -587,7 +804,7 @@
               <a class="footer-others__link" href="#">Chính sách riêng tư</a>
             </li>
             <li class="footer-others__item">
-              <a class="footer-others__link" href="#">Đơn đặt hàng và returns</a>
+              <a class="footer-others__link" href="#">Đơn đặt hàng và Returns</a>
             </li>
           </ul>
         </div>
