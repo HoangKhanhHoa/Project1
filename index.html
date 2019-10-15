@@ -14,7 +14,7 @@
 
 <body>
   <!-- header -->
-  <header class="header">
+  <header class="header js-header">
     <div class="container">
       <div class="row">
         <!-- logo -->
@@ -37,6 +37,20 @@
               <a href="#" class="nav__link">Sản Phẩm
                 <i class="fas fa-angle-down"></i>
               </a>
+              <ul class="nav__children nav js-nav-children">
+                <li class="nav__item">
+                  <a class="nav__link" href="#">Mỹ Phẩm</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="#">Nước hoa</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="#">Trang sức</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="#">Quà tặng</a>
+                </li>
+              </ul>
             </li>
             <li class="nav__item">
               <a href="#" class="nav__link">Tin Tức</a>
@@ -58,8 +72,15 @@
           <!-- end shopping-cart -->
           <!-- form-search -->
           <form action="#" method="GET" class="form-search">
-            <input type="text" class="form-search__input" placeholder="Search...">
-            <button type="button" class="form-search__button js-search-button">
+            <div class="form-search__input-container form-search__hidden">
+              <div class="form-search__main">
+                <button type="button" class="form-search__button js-close-button">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <input type="text" class="form-search__input" name="search" placeholder="Search...">
+              </div>
+            </div>
+            <button type="submit" class="form-search__button js-search-button">
               <i class="fas fa-search"></i>
             </button>
           </form>
@@ -162,7 +183,8 @@
               <a href="#">
                 <img src="img/flower_woman.JPG" alt="Giảm giá">
               </a>
-              <div class="categories__title categories__title--last categories__title--rose triangle-left triangle-left--rose right">
+              <div
+                class="categories__title categories__title--last categories__title--rose triangle-left triangle-left--rose right">
                 <a class="title-special" href="#">
                   <img class="title-special__img" src="img/perfume.PNG" alt="Nước hoa">
                   <p class="title-special__intro">Quyến rũ hơn</p>
@@ -185,9 +207,23 @@
               <img class="review__author-ava" src="img/author_ava.JPG" alt="Author Tutile">
             </div>
             <div class="review__des">
-              <p class="review__text">Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo
-                nhưng
-                lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến nhất, hãng Rohto
+              <p class="review__text">
+                Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến nhất, hãng Rohto
+              </p>
+              <p class="review__signature">
+                <span>Tutile</span>
+                <span>_ Giám đốc phát triển sản phẩm</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="review__item">
+            <div class="review__author">
+              <img class="review__author-ava" src="img/author_ava_man.JPG" alt="Author Tutile">
+            </div>
+            <div class="review__des">
+              <p class="review__text">
+                Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến nhất, hãng Rohto
               </p>
               <p class="review__signature">
                 <span>Tutile</span>
@@ -201,25 +237,8 @@
               <img class="review__author-ava" src="img/author_ava.JPG" alt="Author Tutile">
             </div>
             <div class="review__des">
-              <p class="review__text">Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo
-                nhưng
-                lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến nhất, hãng Rohto
-              </p>
-              <p class="review__signature">
-                <span>Tutile</span>
-                <span>_ Giám đốc phát triển sản phẩm</span>
-              </p>
-            </div>
-          </div>
-
-          <div class="review__item">
-            <div class="review__author">
-              <img class="review__author-ava" src="img/author_ava.JPG" alt="Author Tutile">
-            </div>
-            <div class="review__des">
-              <p class="review__text">Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo
-                nhưng
-                lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến nhất, hãng Rohto
+              <p class="review__text">
+                Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ đạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với công nghệ cải tiến nhất, hãng Rohto
               </p>
               <p class="review__signature">
                 <span>Tutile</span>
@@ -680,8 +699,7 @@
             Review son kem Bourjois Velvet
           </p>
           <p class="blog__des">
-            Hi, chào các nàng... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm nóng cái Blog này vào một ngày
-            đầu hè nóng oi bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.
+            Hi, chào các nàng... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.
           </p>
           <p class="blog__author">Bởi NamTran ( 27 / 05 / 2015 )</p>
           <div class="blog__more clearfix">
@@ -697,7 +715,7 @@
           <h3 class="contact__title">
             Gửi mail về cho chúng tôi
           </h3>
-          <form class="mail-us__form" action="#" method="GET">
+          <form class="mail-us__form" action="#" method="POST">
             <input class="mail-us__email" type="email" name="email" placeholder="Email của bạn">
             <p class="mail-us__des">Gửi email để nhận những ưu đãi mới nhất</p>
             <input class="mail-us__button" type="submit" value="Gửi">
@@ -751,7 +769,8 @@
             </p>
             <p class="contact-us__others">
               <span class="contact-us__item"><i class="fas fa-phone-alt"></i>(08) 6680 9686</span>
-              <a class="contact-us__item" href="mailto:Support@bizweb.vn"><i class="fas fa-envelope"></i>Support@bizweb.vn</a>
+              <a class="contact-us__item" href="mailto:Support@bizweb.vn"><i
+                  class="fas fa-envelope"></i>Support@bizweb.vn</a>
             </p>
           </div>
         </div>
