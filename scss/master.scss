@@ -82,11 +82,15 @@ body {
 /* HEADER */
 
 .header {
-  background-color: $bg-header;
+  background-color: rgba($bg-header, 0.4);
   border-bottom: 1px solid $gray-1;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 999;
+
+  &--stuck{
+    background-color: $pure-white;
+  }
 
   &__nav {
     font-family: $font-opensans-bold;
@@ -107,6 +111,10 @@ body {
       font-size: 12px;
       padding: 0 15px;
       text-transform: uppercase;
+      &:hover .nav__children{
+        top: auto;
+        opacity: 1;
+      }
     }
 
     &__link {
@@ -116,6 +124,23 @@ body {
 
       &:hover {
         color: $theme-green;
+      }
+    }
+    &__children{
+      margin: 0;
+      padding: 10px;
+      position: absolute;
+      top: -200px;
+      opacity: 0;
+      transition: all 0.6s ease-in-out;
+      background-color: rgba($bg-header, 0.8);
+
+      &--stuck{
+        background-color: $pure-white;
+      }
+      .nav__item{
+        display: block;
+        padding: 8px;
       }
     }
   }
@@ -138,16 +163,30 @@ body {
   .form-search {
     float: left;
     margin-left: 25px;
+    position: relative;
+
+    &__input-container{
+      position: absolute;
+      overflow: hidden;
+      right: 20px;
+      top: 0;
+      width: 365px;
+      transition: all 0.6s ease-in-out;
+    }
+
+    &__hidden{
+      width: 0px;
+    }
+
+    &__main{
+      width: 365px;
+    }
 
     &__input {
+      width: 265px;
       border: 1px solid $gray-5;
       border-radius: 10px;
-      display: none;
-      left: auto;
       padding: 10px 30px;
-      position: absolute;
-      right: 0;
-      top: 100%;
 
       &:focus {
         border-color: $theme-green;
@@ -464,6 +503,7 @@ body {
 }
 
 .review {
+  $this: &;
   background-image: url('../img/bg_flower.PNG');
   background-position: 96% 42%;
   background-repeat: no-repeat;
@@ -471,6 +511,17 @@ body {
   padding-top: 80px;
 
   &__item{
+    &.slick-active{
+      #{$this}__author{
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      #{$this}__des{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
     &::after {
       clear: both;
       content: '';
@@ -483,8 +534,11 @@ body {
     border: 3px solid $gray-1;
     box-sizing: border-box;
     float: left;
+    opacity: 0;
     padding: 10px;
     position: relative;
+    transform: scale(0.8);
+    transition: all 1.2s ease-in-out;
   }
 
   &__author-ava {
@@ -498,8 +552,10 @@ body {
     font-size: 16px;
     line-height: 28px;
     margin-left: 55px;
+    opacity: 0;
     width: 570px;
-
+    transform: translateX(100%);
+    transition: all 1s ease-in-out;
   }
 
   &__text {
@@ -606,11 +662,9 @@ body {
     width: 270px;
 
     &:hover .product__interact{
-      display: block;
-    }
-
-    &:focus{
-      outline: none;
+      margin: 0;
+      padding: 12px 0 25px;
+      opacity: 1;
     }
 
     &__img {
@@ -677,9 +731,10 @@ body {
     }
 
     &__interact {
-      padding: 12px 0 25px;
+      margin-top: -40px;
       text-align: center;
-      display: none;
+      transition: all 0.6s ease;
+      opacity: 0;
     }
 
     &__buy {
@@ -948,10 +1003,15 @@ body {
 
   &__email {
     box-sizing: border-box;
+    border: 1px solid $gray-3;
     font-family: $font-opensans-bold;
     font-size: 12px;
     padding: 8px 25px;
     width: 100%;
+    &:focus{
+      outline: none;
+      border-color: $theme-green;
+    }
   }
 
   &__des {
@@ -965,6 +1025,9 @@ body {
     cursor: pointer;
     padding: 8px 26px;
     text-transform: uppercase;
+    &:hover{
+      background-color: $theme-green;
+    }
   }
 }
 
