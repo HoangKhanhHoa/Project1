@@ -74,6 +74,7 @@ body {
   font-weight: 100;
   padding-right: 15px;
 }
+
 .logo::after {
   width: 54px;
   height: 54px;
@@ -372,6 +373,7 @@ body {
 .categories__title--last {
   display: block;
 }
+
 .categories .control__button {
   position: absolute;
   top: 50%;
