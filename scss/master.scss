@@ -12,18 +12,20 @@ body {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   max-width: 1230px;
 }
 
 .row {
   display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .logo {
   margin: 0;
-  padding: 12px 5px;
+  padding: 13px 5px;
   position: relative;
 
   &::first-letter {
@@ -84,16 +86,18 @@ body {
 .header {
   background-color: rgba($bg-header, 0.4);
   border-bottom: 1px solid $gray-1;
+  min-height: 78px;
   position: fixed;
   width: 100%;
   z-index: 999;
 
-  &--stuck{
-    background-color: $pure-white;
+  &--stuck {
+    background-color: rgba($bg-header, 0.8);
   }
 
   &__nav {
     font-family: $font-opensans-bold;
+    font-size: 0px;
   }
 
   &__right {
@@ -104,16 +108,23 @@ body {
   }
 
   .nav {
-    margin-left: 135px;
+    $this: &;
+    margin-left: 150px;
     margin-top: 30px;
 
     &__item {
       font-size: 12px;
-      padding: 0 15px;
+      padding-bottom: 4px;
+      padding-top: 4px;
       text-transform: uppercase;
-      &:hover .nav__children{
-        top: auto;
+
+      &:nth-child(n+2) {
+        margin-left: 38px;
+      }
+
+      &:hover .nav__children {
         opacity: 1;
+        transform: scale(1);
       }
     }
 
@@ -121,26 +132,34 @@ body {
       color: $black-1;
       text-decoration: none;
       transition: 0.6s;
+      padding: 18px 0;
 
       &:hover {
         color: $theme-green;
       }
-    }
-    &__children{
-      margin: 0;
-      padding: 10px;
-      position: absolute;
-      top: -200px;
-      opacity: 0;
-      transition: all 0.6s ease-in-out;
-      background-color: rgba($bg-header, 0.8);
 
-      &--stuck{
-        background-color: $pure-white;
+      & :first-child {
+        position: absolute;
+        padding: 4px 6px 24px;
       }
-      .nav__item{
+    }
+
+    &__children {
+      margin-top: 0;
+      margin-left: -12px;
+      opacity: 0;
+      position: absolute;
+      top: 100%;
+      transform: scale(0);
+      transition: all 0.3s ease-in-out;
+      background-color: rgba($bg-header, 0.8);
+      border: 1px solid $gray-1;
+      border-top-width: 0px;
+
+      .nav__item {
         display: block;
-        padding: 8px;
+        padding: 10px 15px;
+        margin: 0;
       }
     }
   }
@@ -154,7 +173,7 @@ body {
       padding: 10px 18px;
       transition: 0.6s;
 
-      &:hover{
+      &:hover {
         color: $theme-green;
       }
     }
@@ -165,25 +184,25 @@ body {
     margin-left: 25px;
     position: relative;
 
-    &__input-container{
+    &__input-container {
       position: absolute;
       overflow: hidden;
       right: 20px;
       top: 0;
-      width: 365px;
+      width: 360px;
       transition: all 0.6s ease-in-out;
     }
 
-    &__hidden{
+    &__hidden {
       width: 0px;
     }
 
-    &__main{
-      width: 365px;
+    &__main {
+      width: 360px;
     }
 
     &__input {
-      width: 265px;
+      width: 260px;
       border: 1px solid $gray-5;
       border-radius: 10px;
       padding: 10px 30px;
@@ -202,11 +221,11 @@ body {
       width: 25px;
       transition: 0.6s;
 
-      &:hover{
+      &:hover {
         color: $theme-green;
       }
 
-      &:focus{
+      &:focus {
         outline: none;
       }
     }
@@ -260,7 +279,7 @@ body {
       }
     }
 
-    &__buy{
+    &__buy {
       text-align: center;
     }
 
@@ -286,7 +305,7 @@ body {
     width: 30%;
   }
 
-  &__icon{
+  &__icon {
     font-size: 24px;
   }
 
@@ -356,7 +375,7 @@ body {
       background-color: $color-rose;
     }
 
-    &--last{
+    &--last {
       display: block;
     }
   }
@@ -391,17 +410,17 @@ body {
     text-decoration: none;
     text-transform: uppercase;
 
-    &--dark{
+    &--dark {
       color: $black-1;
       border-color: $black-1;
     }
 
-    &--light{
+    &--light {
       color: $pure-white;
       border-color: $gray-1;
     }
 
-    &--small{
+    &--small {
       font-size: 22px;
     }
 
@@ -416,21 +435,21 @@ body {
       transform: translateX(-50%) skewX(-15deg) scaleY(0.6);
     }
 
-    &--bg-sunny{
-      &::after{
-      background-color: $color-sunny;
+    &--bg-sunny {
+      &::after {
+        background-color: $color-sunny;
       }
     }
 
-    &--bg-grapes{
-      &::after{
-      background-color: $color-grapes;
+    &--bg-grapes {
+      &::after {
+        background-color: $color-grapes;
       }
     }
 
-    &--bg-sea{
-      &::after{
-      background-color: $color-sea;
+    &--bg-sea {
+      &::after {
+        background-color: $color-sea;
       }
     }
   }
@@ -441,7 +460,7 @@ body {
     text-align: center;
     text-decoration: none;
 
-    &__img{
+    &__img {
       margin-top: 16px;
     }
 
@@ -465,39 +484,39 @@ body {
 }
 
 .triangle-left {
-  &::before{
+  &::before {
     @include triangle(-20px, null);
     content: '';
   }
 
   &--sunny {
-    &::before{
+    &::before {
       border-right-color: $color-sunny;
     }
   }
 
   &--rose {
-    &::before{
-    border-right-color: $color-rose;
+    &::before {
+      border-right-color: $color-rose;
     }
   }
 }
 
 .triangle-right {
-  &::before{
+  &::before {
     @include triangle(null, -20px);
     content: '';
   }
 
   &--grapes {
-    &::before{
+    &::before {
       border-left-color: $color-grapes;
     }
   }
 
   &--sea {
-    &::before{
-    border-left-color: $color-sea;
+    &::before {
+      border-left-color: $color-sea;
     }
   }
 }
@@ -505,23 +524,26 @@ body {
 .review {
   $this: &;
   background-image: url('../img/bg_flower.PNG');
-  background-position: 96% 42%;
+  background-position: 93.5% 40%;
   background-repeat: no-repeat;
-  padding-bottom: 70px;
-  padding-top: 80px;
+  padding-bottom: 68px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 82px;
 
-  &__item{
-    &.slick-active{
-      #{$this}__author{
+  &__item {
+    &.slick-active {
+      #{$this}__author {
         opacity: 1;
         transform: scale(1);
       }
 
-      #{$this}__des{
+      #{$this}__des {
         opacity: 1;
         transform: translateX(0);
       }
     }
+
     &::after {
       clear: both;
       content: '';
@@ -534,6 +556,7 @@ body {
     border: 3px solid $gray-1;
     box-sizing: border-box;
     float: left;
+    margin-top: 3px;
     opacity: 0;
     padding: 10px;
     position: relative;
@@ -551,7 +574,7 @@ body {
     font-family: $font-opensans-reg;
     font-size: 16px;
     line-height: 28px;
-    margin-left: 55px;
+    margin-left: 52px;
     opacity: 0;
     width: 570px;
     transform: translateX(100%);
@@ -573,33 +596,37 @@ body {
     font-size: 14px;
     margin: 12px 0;
 
-    & :first-child{
+    & :first-child {
       text-transform: uppercase;
     }
 
     & :last-child {
       color: $gray-6;
-      font-style: italic;
+      font-family: $font-opensans-italic;
+      padding: 0 8px;
     }
   }
 
-  .custom-dots{
+  .custom-dots {
     margin: 8px 0 0 200px;
     padding: 0;
     list-style-type: none;
-    & > :nth-child(n){
+
+    &> :nth-child(n) {
       background-color: $pure-black;
       display: inline-block;
       list-style-type: none;
       margin-right: 5px;
     }
-    &__item{
+
+    &__item {
       display: block;
       width: 7px;
       height: 7px;
       cursor: pointer;
     }
-    .slick-active{
+
+    .slick-active {
       background-color: $gray-7;
     }
   }
@@ -648,6 +675,7 @@ body {
     &__link {
       @include font-format($font-opensans-reg, 14px, $gray-7);
       transition: 0.3s;
+
       &:hover {
         color: $theme-green;
       }
@@ -661,7 +689,7 @@ body {
     position: relative;
     width: 270px;
 
-    &:hover .product__interact{
+    &:hover .product__interact {
       margin: 0;
       padding: 12px 0 25px;
       opacity: 1;
@@ -669,12 +697,13 @@ body {
 
     &__img {
       border-bottom: 1px dashed $gray-1;
+      margin: auto;
     }
 
     &__name {
       @include font-format($font-opensans-bold, 13px, $gray-4);
       display: block;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
       margin-top: 18px;
       text-align: center;
       text-decoration: none;
@@ -682,7 +711,7 @@ body {
     }
 
     &__type {
-      @include font-format($font-opensans-light, 16px, $pure-black);
+      @include font-format($font-opensans-reg, 16px, $pure-black);
       display: block;
       font-weight: 700;
       position: relative;
@@ -693,7 +722,7 @@ body {
         border-bottom: 1px solid $gray-7;
         content: '';
         left: 50%;
-        padding: 16px;
+        padding: 16px 20px;
         position: absolute;
         transform: translateX(-50%);
       }
@@ -701,7 +730,7 @@ body {
 
     &__price {
       font-family: $font-lobster;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       padding: 5px 0;
       text-align: center;
 
@@ -759,8 +788,8 @@ body {
       border-radius: 15px;
       color: $pure-white;
       cursor: pointer;
-      margin: 0 5px;
-      padding: 14px;
+      margin: 0 6px;
+      padding: 13px 15px;
     }
 
     &__change {
@@ -768,7 +797,7 @@ body {
       border: 2px solid $gray-1;
       border-radius: 15px;
       cursor: pointer;
-      padding: 12px;
+      padding: 11px 13px;
     }
   }
 }
@@ -784,7 +813,7 @@ body {
     padding: 0 10px;
   }
 
-  &__link{
+  &__link {
     @include font-format($font-utm-androgyne, 18px, $gray-2);
     text-decoration: none;
   }
@@ -802,7 +831,8 @@ body {
       transform: translateX(-50%);
     }
   }
-  .divider{
+
+  .divider {
     border-left: 1px solid $gray-1;
     padding: 5px 0;
   }
@@ -816,7 +846,8 @@ body {
   margin-left: 30px;
   position: absolute;
   transform: translateX(-100%);
-  &:focus{
+
+  &:focus {
     outline: none;
   }
 }
@@ -829,7 +860,8 @@ body {
   position: absolute;
   right: 0;
   transform: translateX(100%);
-  &:focus{
+
+  &:focus {
     outline: none;
   }
 }
@@ -841,19 +873,17 @@ body {
   padding-top: 40px;
 
   &__item {
+    box-sizing: border-box;
     float: left;
-    width: 32%;
-
-    &:nth-child(n+2) {
-      margin-left: 2%;
-    }
+    width: 33.33%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   &__title {
     font-family: $font-opensans-bold;
     font-size: 16px;
-    margin-top: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 13px;
     text-align: center;
     text-transform: uppercase;
 
@@ -885,10 +915,12 @@ body {
 
   .nav {
     text-align: center;
+    font-size: 0px;
 
     &__item {
-      padding: 6px 40px;
+      padding: 6px 0px;
       transition: 0.6s;
+      width: 173px;
     }
 
     &__link {
@@ -896,7 +928,7 @@ body {
       text-transform: uppercase;
       transition: 0.6s;
 
-      &:hover{
+      &:hover {
         color: $theme-green;
       }
 
@@ -908,7 +940,7 @@ body {
   }
 
   &__icon {
-    @include circle(25px, 25px);
+    @include circle(24px, 24px);
     border: 2px solid $pure-black;
     display: inline-block;
     margin-right: 10px;
@@ -918,6 +950,7 @@ body {
 
     & :first-child {
       @include center-position;
+      font-size: 15px;
     }
   }
 }
@@ -927,11 +960,14 @@ body {
     font-family: $font-opensans-bold;
     font-size: 12px;
     margin-top: 26px;
+    margin-bottom: 14px;
     text-transform: uppercase;
   }
 
   &__des {
     @include font-format($font-opensans-reg, 12px, $gray-9);
+    line-height: 16px;
+    margin-bottom: 16px;
     text-align: justify;
   }
 
@@ -939,7 +975,8 @@ body {
     & :first-child {
       @include font-format($font-opensans-reg, 12px, $gray-9);
       text-decoration: none;
-      &:hover{
+
+      &:hover {
         color: $theme-green;
       }
     }
@@ -957,37 +994,39 @@ body {
     text-transform: uppercase;
   }
 
-  &__img{
-    margin-top: 10px;
+  &__img {
+    margin-top: 12px;
   }
 
   &__des {
     @include font-format($font-opensans-reg, 12px, $gray-9);
-    margin: 0;
+    line-height: 16px;
+    margin: 0 0 3px;
   }
 
   &__author {
-    @include font-format($font-opensans-reg, 12px, $gray-4);
+    @include font-format($font-opensans-italic, 12px, $gray-4);
     border-bottom: 1px solid $gray-1;
-    font-style: italic;
     margin: 0;
     padding-bottom: 12px;
   }
 
-  &__more{
+  &__more {
     padding: 5px 0;
   }
 
-  &__read-more, &__comment{
+  &__read-more,
+  &__comment {
     @include font-format($font-opensans-reg, 12px, $gray-9);
     text-decoration: none;
-    &:hover{
+
+    &:hover {
       color: $theme-green;
     }
   }
 
   &__read-more {
-    & :last-child{
+    & :last-child {
       vertical-align: middle;
     }
   }
@@ -998,7 +1037,7 @@ body {
   text-align: center;
 
   &__form {
-    padding: 10px 0;
+    padding: 13px 0 11px;
   }
 
   &__email {
@@ -1006,16 +1045,18 @@ body {
     border: 1px solid $gray-3;
     font-family: $font-opensans-bold;
     font-size: 12px;
-    padding: 8px 25px;
+    padding: 8px 20px;
     width: 100%;
-    &:focus{
+
+    &:focus {
       outline: none;
       border-color: $theme-green;
     }
   }
 
   &__des {
-    @include font-format($font-opensans-reg, 12px, $gray-5);
+    @include font-format($font-opensans-light, 12px, $gray-5);
+    margin-top: 12px;
   }
 
   &__button {
@@ -1023,18 +1064,21 @@ body {
     background-color: $pure-black;
     border: none;
     cursor: pointer;
-    padding: 8px 26px;
+    padding: 8px 28px;
     text-transform: uppercase;
-    &:hover{
+    transition: 0.6s;
+
+    &:hover {
       background-color: $theme-green;
     }
   }
 }
 
 .tag-product {
-  &__wrapper-item{
-    padding: 8px 0;
+  &__wrapper-item {
+    padding: 10px 0;
   }
+
   &__item {
     @include font-format($font-opensans-reg, 12px, $gray-8);
     border: 1px solid $gray-1;
@@ -1064,11 +1108,19 @@ body {
 }
 
 .main-footer {
-  padding-bottom: 16px;
+  padding-bottom: 18px;
   padding-top: 52px;
 
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
   &__item {
-    width: 16.66%;
+    width: 16.67%;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   &__title {
@@ -1079,14 +1131,13 @@ body {
 
   .footer-others {
     box-sizing: border-box;
-    padding: 0 10px;
 
     &__content {
       margin-top: 20px;
       padding: 0;
     }
 
-    &__item{
+    &__item {
       margin-bottom: 5px;
     }
 
@@ -1098,14 +1149,15 @@ body {
       transition: 0.6s;
 
       &:hover {
-        &::before{
+        &::before {
           content: '';
           display: inline-block;
           width: 4px;
           height: 4px;
-          margin: 3px 7px 3px 0;
+          margin: 3px 6px 3px 0;
           background-color: $theme-green;
         }
+
         color: $theme-green;
       }
     }
@@ -1130,7 +1182,7 @@ body {
   &__address {
     font-weight: 700;
     line-height: 30px;
-    margin-top: 18px;
+    margin-top: 20px;
 
     & :first-child {
       color: $theme-green;
@@ -1152,7 +1204,7 @@ body {
   }
 
   &__others:last-child {
-    #{$this}__item:last-child{
+    #{$this}__item:last-child {
       text-decoration: none;
       color: $theme-green;
       font-style: italic;
@@ -1163,13 +1215,14 @@ body {
   &__item {
     font-weight: 700;
     transition: 0.6s;
+
     & :first-child {
       color: $theme-green;
-      margin-right: 5px;
+      margin-right: 6px;
     }
   }
 
-  &__hyphen{
+  &__hyphen {
     margin: 0 5px;
   }
 }
@@ -1177,6 +1230,7 @@ body {
 .copyright {
   margin-right: auto;
   margin-top: 4px;
+
   &__text {
     @include font-format($font-roboto-reg, 12px, $gray-9);
     margin: 0;

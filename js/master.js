@@ -3,10 +3,8 @@ window.onscroll = function(){
 
   if(y > 0){
     $('.js-header').addClass('header--stuck');
-    $('.js-nav-children').addClass('nav__children--stuck');
   } else {
     $('.js-header').removeClass('header--stuck');
-    $('.js-nav-children').removeClass('nav__children--stuck');
   }
 };
 
